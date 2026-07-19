@@ -1,0 +1,70 @@
+/* CSS Grid Auto-resize trick for Textareas */
+.translated-text-container {
+    position: relative;
+    display: grid;
+    flex: 1;
+}
+
+.translated-text-container::after {
+    content: attr(data-replicated-value) " ";
+    white-space: pre-wrap;
+    visibility: hidden;
+    grid-area: 1 / 1 / 2 / 2;
+    font-size: var(--editor-font-size, 1.125rem);
+    line-height: calc(var(--editor-font-size, 1.125rem) * 1.5);
+    padding: 0;
+    min-height: 28px;
+    font-family: inherit;
+    word-break: break-word;
+}
+
+.translated-textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: var(--editor-font-size, 1.125rem);
+    line-height: calc(var(--editor-font-size, 1.125rem) * 1.5);
+    padding: 0;
+    resize: none;
+    outline: none;
+    min-height: 28px;
+    overflow: hidden;
+    font-family: inherit;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.translated-textarea::placeholder {
+    color: rgba(156, 163, 175, 0.5); /* gray-400 */
+    font-style: italic;
+}
+
+/* Scroll optimizations for the list */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #121217;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #2d2e3a;
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #3f4052;
+}
+
+/* Hide scrollbar for tabs */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Virtual Scroll Optimization */
+.translation-block-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 100px;
+}
