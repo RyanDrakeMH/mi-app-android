@@ -1,17 +1,7 @@
-import type { CapacitorConfig } from '@capacitor/cli';
-
-// https://capacitorjs.com/docs/config
-const config: CapacitorConfig = {
-    appId: 'com.example.app',
-    appName: 'Example App',
-    webDir: 'dist',
-
-    // ios: {
-    //     iconAssets: []
-    // },
-    // pwa: {
-    //     iconPath: null
-    // }
+const config = {
+  appId: 'com.mi.app',
+  appName: 'Mi App Android',
+  webDir: 'src'
 };
 
-export default config;
+module.exports = config;
